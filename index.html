@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#060914">
+<title>Reino dos Doces</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="bg" aria-hidden="true"></div>
+<div id="fx" aria-hidden="true"></div>
+<main>
+  <!-- ============ HUB ============ -->
+  <section id="hub" class="screen active">
+    <h1 class="logo">Reino dos Doces</h1>
+    <p class="sub">// Selecione um módulo</p>
+    <div class="town">
+      <button class="house h-cy" data-go="pairs">
+        <svg viewBox="0 0 120 100" class="ico" aria-hidden="true">
+          <path d="M60 14V3" stroke="#fff" stroke-width="2"/><path d="M60 3h15l-4 5 4 5H60z" fill="#ff2bd6"/>
+          <rect x="18" y="42" width="84" height="48" rx="4" fill="#142a63" stroke="#00e5ff" stroke-width="2.5"/>
+          <path d="M10 44L60 14L110 44Z" fill="#1d3a8a" stroke="#00e5ff" stroke-width="2.5" stroke-linejoin="round"/>
+          <circle cx="60" cy="35" r="8" fill="#ffe45c" stroke="#fff" stroke-width="1.5"/>
+          <path d="M60 35V29M60 35L64 37" stroke="#333" stroke-width="1.6" stroke-linecap="round"/>
+          <rect x="52" y="62" width="16" height="28" rx="3" fill="#ff2bd6"/><circle cx="64" cy="77" r="1.5" fill="#fff"/>
+          <rect x="26" y="52" width="17" height="15" rx="2" fill="#7dff6a" opacity=".9"/>
+          <rect x="77" y="52" width="17" height="15" rx="2" fill="#7dff6a" opacity=".9"/>
+          <path d="M34.5 52v15M26 59.5h17M85.5 52v15M77 59.5h17" stroke="#0a1230" stroke-width="1.2"/>
+        </svg>
+        <b>Purble Pairs</b><small>Encontre os pares</small>
+      </button>
+      <button class="house h-mg" data-go="cakes">
+        <svg viewBox="0 0 120 100" class="ico" aria-hidden="true">
+          <circle cx="90" cy="9" r="4" fill="#fff" opacity=".35"/><circle cx="95" cy="3" r="3" fill="#fff" opacity=".25"/>
+          <rect x="80" y="14" width="12" height="28" fill="#1d3a8a" stroke="#ff2bd6" stroke-width="2"/>
+          <rect x="16" y="40" width="88" height="50" rx="4" fill="#142a63" stroke="#ff2bd6" stroke-width="2.5"/>
+          <path d="M12 40H108L102 58H18Z" fill="#fff" stroke="#ff2bd6" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M12 40H29L28 58H18ZM46 40H63L63 58H46ZM80 40H97L98 58H80Z" fill="#ff2bd6"/>
+          <rect x="24" y="64" width="30" height="21" rx="3" fill="#ffe45c" opacity=".85"/>
+          <text x="39" y="80" font-size="16" text-anchor="middle">🎂</text>
+          <rect x="66" y="62" width="20" height="28" rx="3" fill="#00e5ff"/><circle cx="82" cy="77" r="1.5" fill="#0a1230"/>
+        </svg>
+        <b>Comfy Cakes</b><small>Monte o bolo do pedido</small>
+      </button>
+      <button class="house h-lm" data-go="shop">
+        <svg viewBox="0 0 120 100" class="ico" aria-hidden="true">
+          <rect x="16" y="38" width="88" height="52" rx="4" fill="#142a63" stroke="#7dff6a" stroke-width="2.5"/>
+          <path d="M12 38H108L100 22H20Z" fill="#1d3a8a" stroke="#7dff6a" stroke-width="2.5" stroke-linejoin="round"/>
+          <text x="60" y="35" font-size="17" text-anchor="middle">🎩</text>
+          <rect x="24" y="50" width="46" height="32" rx="3" fill="#0a1230" stroke="#7dff6a" stroke-width="1.5"/>
+          <circle cx="47" cy="68" r="11" fill="#4fd8d0"/>
+          <circle cx="43" cy="66" r="3" fill="#fff"/><circle cx="52" cy="66" r="3" fill="#fff"/>
+          <circle cx="43" cy="66.5" r="1.4" fill="#111"/><circle cx="52" cy="66.5" r="1.4" fill="#111"/>
+          <path d="M43 72Q47.5 76 52 72" stroke="#111" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+          <rect x="78" y="52" width="18" height="38" rx="3" fill="#ff2bd6"/><circle cx="92" cy="72" r="1.5" fill="#fff"/>
+        </svg>
+        <b>Purble Shop</b><small>Descubra o Purble</small>
+      </button>
+    </div>
+    <div id="crew" aria-label="Purbles"></div>
+    <p class="hint">Toque nos Purbles para trocar de roupa</p>
+  </section>
+
+  <!-- ============ PAIRS ============ -->
+  <section id="pairs" class="screen">
+    <h2 class="title">Purble Pairs</h2>
+    <div class="bar">
+      <button class="home" aria-label="Início">🏠</button>
+      <select id="pLevel" aria-label="Dificuldade">
+        <option value="easy">Fácil</option>
+        <option value="normal" selected>Normal</option>
+        <option value="hard">Difícil</option>
+      </select>
+      <span id="pTime"></span><span id="pMoves"></span><span id="pBest"></span>
+    </div>
+    <div class="meter"><i id="pFill"></i></div>
+    <div id="pGrid" class="panel"></div>
+    <p id="pMsg" class="msg"></p>
+    <button class="btn" id="pNew">Novo jogo</button>
+  </section>
+
+  <!-- ============ CAKES ============ -->
+  <section id="cakes" class="screen">
+    <h2 class="title">Comfy Cakes</h2>
+    <div class="bar"><button class="home" aria-label="Início">🏠</button><span id="cInfo"></span></div>
+    <div id="cCust"></div>
+    <div class="cwrap">
+      <div class="card ticket"><h3>Pedido</h3><div id="cOrder"></div></div>
+      <div class="card"><h3>Seu bolo</h3><div id="cMine"></div></div>
+    </div>
+    <div id="cOpts" class="panel"></div>
+    <button class="btn" id="cBtn">Entregar ✔</button>
+    <p id="cMsg" class="msg"></p>
+  </section>
+
+  <!-- ============ SHOP ============ -->
+  <section id="shop" class="screen">
+    <h2 class="title">Purble Shop</h2>
+    <div class="bar">
+      <button class="home" aria-label="Início">🏠</button>
+      <select id="sLevel" aria-label="Nível">
+        <option value="3">Iniciante</option>
+        <option value="4">Intermediário</option>
+        <option value="5">Avançado</option>
+        <option value="6">Expert</option>
+        <option value="7">Mestre</option>
+      </select>
+      <span id="sTry"></span>
+    </div>
+    <div class="legend"><b class="ok">✔</b> cor certa, item certo &nbsp; <b class="no">✖</b> cor certa, item errado</div>
+    <div class="shopwrap">
+      <div id="sChar"></div>
+      <div id="sShelf" class="panel"></div>
+    </div>
+    <button class="btn" id="sBtn">Testar ✔</button>
+    <p id="sMsg" class="msg"></p>
+    <div id="sHist"></div>
+  </section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
